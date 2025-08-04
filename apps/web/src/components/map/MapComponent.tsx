@@ -31,6 +31,7 @@ export interface MapComponentProps {
 function MapClickHandler({ onMapClick }: { onMapClick?: (lat: number, lng: number) => void }) {
   useMapEvents({
     click(e) {
+      console.log('Map clicked:', e.latlng); // Debug log
       if (onMapClick) {
         onMapClick(e.latlng.lat, e.latlng.lng);
       }

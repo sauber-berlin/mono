@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, MapPin, Plus } from 'lucide-react';
-import { useRouter } from '@/i18n/navigation';
+import { MapPin, Camera } from 'lucide-react';
+import { useRouter, Link } from '@/i18n/navigation';
 import Map from '@/components/map/Map';
+import BottomNav from '@/components/ui/BottomNav';
 
 // Mock data - replace with real data later
 const mockReports = [
@@ -53,25 +54,14 @@ export default function MapPage() {
     }
   }, []);
 
-  const handleMapClick = (lat: number, lng: number) => {
-    // Navigate to report form with coordinates
-    router.push(`/report?lat=${lat}&lng=${lng}`);
-  };
+  // Removed map click handler - reports now start with photo first
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-gray-50 flex flex-col pb-20">
       {/* Header */}
       <header className="bg-green-600 text-white p-4 shadow-lg">
         <div className="flex items-center gap-3">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => router.back()}
-            className="text-white hover:bg-green-700 p-2"
-          >
-            <ArrowLeft className="h-5 w-5" />
-          </Button>
-          <h1 className="text-xl font-bold">Trash Reports</h1>
+          <h1 className="text-xl font-bold flex-1 text-center">Trash Reports</h1>
         </div>
       </header>
 
@@ -82,35 +72,45 @@ export default function MapPage() {
             center={userLocation || [52.5200, 13.4050]}
             zoom={13}
             reports={mockReports}
-            onMapClick={handleMapClick}
           />
         </div>
         
         {/* Map overlay with stats */}
         <div className="absolute top-4 left-4 right-4 z-10">
           <div className="bg-white rounded-lg p-3 shadow-lg">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-center">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-green-600" />
                 <span className="text-sm font-medium">{mockReports.length} reports in area</span>
               </div>
-              <Button size="sm" className="bg-green-600 hover:bg-green-700">
-                <Plus className="h-4 w-4 mr-1" />
-                Add Report
-              </Button>
             </div>
           </div>
         </div>
 
+        {/* Floating Report Button */}
+        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-20">
+          <Link href="/report">
+            <Button 
+              size="lg"
+              className="bg-green-600 hover:bg-green-700 rounded-full w-16 h-16 shadow-lg"
+            >
+              <Camera className="h-6 w-6" />
+            </Button>
+          </Link>
+        </div>
+
         {/* Instructions */}
-        <div className="absolute bottom-4 left-4 right-4 z-10">
+        <div className="absolute bottom-28 left-4 right-4 z-10">
           <div className="bg-white rounded-lg p-3 shadow-lg">
             <p className="text-sm text-gray-600 text-center">
-              Tap on the map to report trash at that location
+              View existing reports and use the camera button to report new trash
             </p>
           </div>
         </div>
       </div>
+
+      {/* Bottom Navigation */}
+      <BottomNav />
     </div>
   );
 }

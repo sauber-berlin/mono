@@ -134,7 +134,7 @@ export default function ReportPage() {
                       Retake
                     </Button>
                     <Button
-                      onClick={() => {/* TODO: Navigate to form */}}
+                      onClick={() => router.push('/report/location')}
                       className="bg-green-600 hover:bg-green-700"
                     >
                       Continue

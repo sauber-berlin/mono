@@ -1,10 +1,11 @@
 import { Button } from '@/components/ui/button';
-import { Camera, MapPin, Home, BarChart3, User } from 'lucide-react';
+import { Camera, MapPin } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
+import BottomNav from '@/components/ui/BottomNav';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-gray-50 flex flex-col pb-20">
       {/* Header */}
       <header className="bg-green-600 text-white p-4 shadow-lg">
         <h1 className="text-xl font-bold text-center">Sauber Berlin</h1>
@@ -63,22 +64,7 @@ export default function HomePage() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="bg-white border-t border-gray-200 p-2">
-        <div className="flex justify-around">
-          <Button variant="ghost" className="flex-1 flex flex-col items-center py-2">
-            <Home className="h-5 w-5 mb-1" />
-            <span className="text-xs">Home</span>
-          </Button>
-          <Button variant="ghost" className="flex-1 flex flex-col items-center py-2">
-            <BarChart3 className="h-5 w-5 mb-1" />
-            <span className="text-xs">Stats</span>
-          </Button>
-          <Button variant="ghost" className="flex-1 flex flex-col items-center py-2">
-            <User className="h-5 w-5 mb-1" />
-            <span className="text-xs">Profile</span>
-          </Button>
-        </div>
-      </nav>
+      <BottomNav />
     </div>
   );
 }
