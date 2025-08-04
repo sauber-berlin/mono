@@ -118,3 +118,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Leaflet CSS imports */
+@import 'leaflet/dist/leaflet.css';
+
+/* Fix Leaflet marker icons in Next.js */
+.leaflet-marker-icon {
+  margin-left: -12px !important;
+  margin-top: -41px !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+}
+
+.leaflet-popup-content {
+  margin: 8px 12px;
+}
