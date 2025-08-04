@@ -8,7 +8,6 @@ export const env = createEnv({
     POSTGRES_URL: z.string(),
     POSTGRES_URL_NON_POOLING: z.string(),
     BETTER_AUTH_SECRET: z.string(),
-    BETTER_AUTH_URL: z.string(),
   },
   client: {
     NEXT_PUBLIC_BETTER_AUTH_URL: z.string(),
@@ -19,7 +18,6 @@ export const env = createEnv({
     POSTGRES_URL: process.env.POSTGRES_URL,
     POSTGRES_URL_NON_POOLING: process.env.POSTGRES_URL_NON_POOLING,
     BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
-    BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,
     NEXT_PUBLIC_BETTER_AUTH_URL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL,
   },
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
