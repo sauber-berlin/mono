@@ -1,0 +1,25 @@
+{
+  "common": {
+    "welcome": "Hallo Welt!",
+    "loading": "Lädt...",
+    "error": "Etwas ist schief gelaufen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "back": "Zurück"
+  },
+  "auth": {
+    "signIn": "Anmelden",
+    "signOut": "Abmelden",
+    "signUp": "Registrieren",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "name": "Name",
+    "createAccount": "Konto erstellen",
+    "createAccountDescription": "Erstellen Sie ein neues Konto, um zu beginnen",
+    "signInDescription": "Melden Sie sich in Ihrem Konto an",
+    "alreadyHaveAccount": "Bereits ein Konto?",
+    "dontHaveAccount": "Noch kein Konto?"
+  }
+}
